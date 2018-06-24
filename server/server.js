@@ -17,9 +17,14 @@ io.on('connection', (socket) => {
 
 
   socket.on('createMessage', (message) => {
-    console.log('createMessage', message);
+    // console.log('createMessage', message);
 
-    socket.emit('newMessage', {
+    /*  socket.emit('newMessage', {  // for single connection
+       ...message,
+       createdAt: new Date().getTime()
+     }); */
+
+    io.emit('newMessage', {
       ...message,
       createdAt: new Date().getTime()
     });
