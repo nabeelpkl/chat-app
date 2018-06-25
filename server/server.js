@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
     }); */
 
     socket.broadcast.emit('newMessage', generateMessage(message.from, message.text)); // connection except the one sending
-    callback('This is from server');
+    callback();
   });
 
   socket.on('createLocationMessage', (coords) => {
