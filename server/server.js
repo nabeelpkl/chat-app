@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
       createdAt: new Date().getTime()
     }); */
 
-    socket.broadcast.emit('newMessage', generateMessage(message.from, message.text)); // connection except the one sending
+    io.emit('newMessage', generateMessage(message.from, message.text)); // connection except the one sending
     callback();
   });
 
